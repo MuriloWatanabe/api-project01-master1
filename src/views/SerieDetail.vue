@@ -4,7 +4,7 @@ export default {
   props: ["id"],
   data() {
     return {
-      movie: [],
+      tv: [],
       overview: [],
     };
   },
@@ -15,9 +15,9 @@ export default {
   },
   async created() {
     const res = await axios.get(
-      `https://api.themoviedb.org/3/movie/${this.id}?api_key=e459257500dba9d31f1002e2efdc21ac&language=pt-BR`
+      `https://api.themoviedb.org/3/tv/${this.id}?api_key=e459257500dba9d31f1002e2efdc21ac&language=pt-br`
     );
-    this.movie = res.data;
+    this.tv = res.data;
     this.overview = res.data;
   },
 };
@@ -30,24 +30,24 @@ export default {
     >
       <img
         class="object-cover w-full h-96 md:h-full md:w-96"
-        :src="getImageUrl(movie.poster_path)"
+        :src="getImageUrl(tv.poster_path)"
         alt=""
       />
       <div class="flex flex-col justify-between p-4 leading-normal">
         <h5
           class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
         >
-          {{ movie.title }}
+          {{ tv.title }}
         </h5>
         <p class="overview">
-          {{ movie.overview }}
+          {{ tv.overview }}
         </p>
-        <p class="Titulo">Título Original: {{ movie.original_title }}</p>
-        <p class="release_date">Data de Lançamento: {{ movie.release_date }}</p>
-        <p class="runtime">Duração: {{ movie.runtime }} minutos</p>
-        <p class="vote">Avaliação:{{ movie.vote_average }}</p>
-        <p class="production">Produtoras: {{ movie.production_companies }}</p>
-        <p class="genero">Gêneros: {{ movie.genres }}</p>
+        <p class="Titulo">Título Original: {{ tv.original_title }}</p>
+        <p class="release_date">Data de Lançamento: {{ tv.release_date }}</p>
+        <p class="runtime">Duração: {{ tv.runtime }} minutos</p>
+        <p class="vote">Avaliação:{{ tv.vote_average }}</p>
+        <p class="production">Produtoras: {{ tv.production_companies }}</p>
+        <p class="genero">Gêneros: {{ tv.genres }}</p>
       </div>
     </div>
   </div>

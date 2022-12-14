@@ -12,9 +12,9 @@ export default {
 <template>
   <ul>
     <li>
-      <a href="#">
+      <RouterLink :to="`/serie/${serie.id}`">
         <img :src="getImageUrl(serie.poster_path)" />
-      </a>
+      </RouterLink>
       <span>{{ serie.name }}</span>
     </li>
   </ul>
